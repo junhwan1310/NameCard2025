@@ -9,7 +9,6 @@ const FooterDiv = styled.div`
 const TitleP = styled.p`
     color: white;
 `
-
 const Footer = () => {
   return (
     <>
