@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const MyButton = styled.button`
@@ -15,7 +16,7 @@ const MyButton = styled.button`
   }  
 `
 
-const Button = (name, onClick) => {
+const Button = ({name, onClick}) => {
   return (
     <MyButton onClick={onClick}>
       {name}

@@ -24,8 +24,8 @@ const CardEditor = ({FileInput, cards, insertOrUpdateCard, deleteCard}) => {
 					deleteCard={deleteCard}
 				/>
 			))}
-			{/* 새로 작성하기 이므로 card 넘길 필요 없음 */}
-			<CardAddForm FileInput={FileInput} insertOrUpdateCard={insertOrUpdateCard} />
+			{/* 새로 작성하기 이므로 card넘길 필요없음 */}
+			<CardAddForm FileInput={FileInput} insertOrUpdateCard={insertOrUpdateCard}  />
     </EditorDiv>
   )
 }

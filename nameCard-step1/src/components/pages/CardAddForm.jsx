@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+
 
 const Form = styled.form`
   display: flex;
@@ -18,6 +19,7 @@ const FileInputDiv = styled.div`
   border-right: 1px solid black;
   background: #F5EBE0;    
 `	 
+
 const CardAddForm = ({FileInput}) => {
   return (
     <Form>
