@@ -22,25 +22,31 @@ const ContainerDiv = styled.div`
   min-height: 0;
 `
 
-const Maker = () => {
+const Maker = ({ FileInput }) => {
 
   const [cards, setCards] = useState({
-    '1':{
+    '1': {
       id: '1',
       theme: 'dark',
       fileName: 'lee',
       fileURL: 'https://res.cloudinary.com/dabcqtmbm/image/upload/v1707156245/lmbxljzqmcylnyngwafk.jpg',
     },
-    '2':{
+    '2': {
       id: '2',
       theme: 'light',
       fileName: 'kim',
       fileURL: null,
     },
-  });   
+    '3': {
+      id: '3',
+      theme: 'colorful',
+      fileName: 'park',
+      fileURL: null,
+    },
+  });
 
   const navigate = useNavigate()
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     await logout()
     //로그아웃이 되고 나면 처음 화면으로 간다.
     navigate('/')
@@ -50,7 +56,7 @@ const Maker = () => {
     <MarkerDiv>
       <Header handleLogout={handleLogout} />
       <ContainerDiv>
-        <CardEditor />
+        <CardEditor FileInput={FileInput} cards={cards} />
         <Preview cards={cards} />
       </ContainerDiv>
       <Footer />
