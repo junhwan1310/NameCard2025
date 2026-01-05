@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import styles from './card.module.css'
+import styled from "styled-components"
+import styles from "./card.module.css"
 
 const CardLi = styled.li`
   display: flex; /* 이렇게 하면 이름같은 것들이 이미지 옆으로 간다 */
@@ -24,7 +24,7 @@ border-radius: 50%; /* 사진이 네모나도 동그랗게 만들기 */
 const Card = ({card}) => {
   const DEFAULT_IMAGE = '/images/default_logo.png'
   const {theme, fileName, fileURL} = card
-  const url = fileURL || DEFAULT_IMAGE 
+  const url = fileURL || DEFAULT_IMAGE
   const getStyles = (theme) => {
     switch(theme) {
       case 'dark':

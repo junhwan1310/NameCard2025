@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Card from './Card'
+import styled from "styled-components"
+import Card from "./Card"
 
 const PreviewDiv = styled.div`
     flex-basis: 50%;
@@ -18,7 +18,7 @@ const CardsUl = styled.ul`
     display: flex;
     flex-direction: column;/* 카드가 너무 왼쪽에 있어서 조정하기 */
     align-items: center;/* 카드가 너무 작아졌다면 card.module.css로 가서 .card에 width: 100%로 준다  */
-`  
+`
 const Preview = ({cards}) => {
   return (
     <PreviewDiv>

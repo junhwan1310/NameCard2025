@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import Header from "../include/Header"
 import Footer from "../include/Footer"
-import { useState } from "react"
 import { useNavigate } from "react-router"
+import { useState } from "react"
 import { loginWithGoogle } from "../../service/authApi"
 
 const LoginDiv = styled.div`
@@ -41,24 +41,25 @@ const BtnLogin = styled.button`
     }
 `
 
+
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate= useNavigate()
   const [uid, setUid] = useState();
   const goToMaker = (uid) => {
     navigate({
       pathname: '/maker',
       state: {id:uid}
     })
-  }
+  } 
   const handleLogin = async() => {
     try {
       const user = await loginWithGoogle()
       console.log("로그인 성공시: ", user.uid, user.email)
-      if(user.uid) {
+      if(user.uid){
         goToMaker(user.uid)
       }
     } catch (error) {
-      console.log("로그인 실패 : ", error)
+      console.error("로그인 실패 : ", error)
     }
   }//end of handleLogin
   return (
@@ -73,7 +74,7 @@ const Login = () => {
             </ItemLi>
             <ItemLi>
               <BtnLogin onClick={handleLogin}>Github</BtnLogin>
-            </ItemLi>
+            </ItemLi>            
           </ListUl>
         </Section>
         <Footer />
