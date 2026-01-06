@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import styles from '/editorform.module.css'
-import Button from '../common/button'
+import styles from './editorform.module.css'
+import Button from '../common/Button'
 import { useRef, useState } from 'react'
 
 const Form = styled.form`
