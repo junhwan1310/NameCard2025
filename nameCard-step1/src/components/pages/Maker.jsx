@@ -29,7 +29,7 @@ const Maker = ({FileInput}) => {
       id: '1',
       theme: 'dark',
       fileName: 'lee',
-      fileURL: 'https://res.cloudinary.com/dabcqtmbm/image/upload/v1707156245/lmbxljzqmcylnyngwafk.jpg',
+      fileURL: 'https://res.cloudinary.com/dkzxieetb/image/upload/v1767665784/gespqjpjeckuqohvoqn9.png',
     },
     '2':{
       id: '2',
