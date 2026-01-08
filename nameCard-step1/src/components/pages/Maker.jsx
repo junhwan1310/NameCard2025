@@ -105,6 +105,7 @@ const Maker = ({FileInput, cardLogic}) => {
   }//end of insertOrUpdateCard
 
   const deleteCard = card => {
+    //CardEditorForm.jsx에서 누른 삭제 버튼의 id를 가져와야함. 
     console.log('deleteCard 호출')
     console.log(card)
     // delete from schedule where id = 2
