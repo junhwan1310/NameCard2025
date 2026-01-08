@@ -24,25 +24,26 @@ const ContainerDiv = styled.div`
 
 const Maker = ({FileInput, cardLogic}) => {
 
-  const [cards, setCards] = useState({});  // end of 더미 데이터 
+  const [cards, setCards] = useState({});//end of 더미 데이터   
   const [userId, setUserId] = useState()
-  // 구글 로그인을 활용한 인증이므로 인증에 대한 내부 처리는 구글이 알고 있다. 
-  // 로그인이 풀렸는지 아직 유지되고 있는지 체크 
+  // 구글 로그인을 활용한 인증이므로 인증에 대한 내부 처리는 구글이 알고 있다.
+  // 로그인이 풀렸는지 아직 유지되고 있는지 체크
+
   useEffect(() => {
     const unsubscribe = subscribeAuthChange((user) => {
       if(user){
-        // 여기까지 진입이 되면 로그인 상태라는 의미   
+        // 여기까지 진입이되면 로그인 상태 라는 의미
         setUserId(user.uid)
       }
-        //로그아웃 상태임
-        else{
-          setUserId(null)
-        }
-      })
-      //사용자 정리 함수 
-      //컴포넌트 언마운트시 구독 해제(후처리)
-      return() => unsubscribe()
-  }, [])
+      //로그아웃 상태임
+      else{
+        setUserId(null)
+      }
+    })
+    //사용자 정리 함수
+    // 콤포넌트 언마운트시 구독 해제(후처리)
+    return () => unsubscribe()
+  },[])
 
   const navigate = useNavigate()
   const handleLogout = async() => {
@@ -59,17 +60,19 @@ const Maker = ({FileInput, cardLogic}) => {
   // 함수의 파라미터 자리와 props(properties)를 사용하면 된다.
   // Firebase에서 조회된 결과를 상위 컴포넌트에서 가지고 있으니 상위 컴포넌트에서 
   // 수정,입력,삭제를 처리합니다 
+  // insertOrUpdateCard함수는 CardAddForm에서 호출하고
+  // 파라미터도 CardAddForm에서 결정됨.
 
   const insertOrUpdateCard = card => {
     console.log('insertOrUpdateCard 호출')
     console.log(card)
     setCards(cards => {
-      //추가 되기 전에 카드 정보 출력 
+      //추가 되기 전에 카드 정보 출력
       console.log(cards)
       const updated = {...cards}
-      //어차피 id가 오브젝트 안에 없다면 새로운 것이 추가됨. 
+      //어차피 id가 오브젝트안에 없다면 새로운 것이 추가됨.
       updated[card.id] = card //card는 CardAddForm에서 파라미터로 받은 값
-      return updated 
+      return updated
     })
     console.log(`${userId}, ${card}`)
     cardLogic.saveCard(userId, card)
@@ -86,7 +89,7 @@ const Maker = ({FileInput, cardLogic}) => {
       return updated
     })
     cardLogic.removeCard(userId, card)
-  } // end of deleteCard
+  }//end of deleteCard
 
 
   return (
